@@ -1,0 +1,3 @@
+- Inline CSS: Directly in the html element (NO!)
+- Internal CSS: using <style> tages within a single document
+- External CSS: Linking an external CSS file
