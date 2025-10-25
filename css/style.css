@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -5,7 +9,9 @@ body {
     /* font: 15px/1.5 Arial, Helvetica, sans-serif; */
     padding:0;
     margin:0;
-    background-color: lightgrey;
+    background-color: #fffafa;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Global */
@@ -48,6 +54,16 @@ textarea {
     margin-bottom: 10px;
 }
 
+/* Footer */
+
+footer {
+    padding: 20px;
+    margin-top: auto;
+    color: #fff;
+    background-color: #e8491d;
+    text-align: center;
+}
+
 /* Header */
 header {
     background: #161748;
@@ -65,24 +81,45 @@ header a {
     font-size: 16px;
 }
 
+header nav ul {
+    display: flex;
+    gap: 20px;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
 header ul li {
+    padding: 0;
+}
+
+/* header ul li {
     float:left;
     display:inline;
     padding: 0 20px 0 20px;
+} */
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header #branding {
-    float: left;
+header #branding,
+header nav {
+    float: none;
+    margin: 0;
 }
 
 header #branding h1 {
     margin: 0;
 }
 
-header nav {
+/* header nav {
     float: right;
     margin-top: 10px;
-}
+} */
 
 header .highlight, header .current a {
     color: #e8491d;
@@ -141,7 +178,8 @@ header .highlight, header .current a {
 
  /* Boxes */
 #boxes .container {
-    margin-top: 15px;
+    margin-top: 35px;
+    margin-bottom: 35px;
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
@@ -193,132 +231,93 @@ aside#sidebar .quote input, aside#sidebar .quote textarea {
 /* Services */
 ul#services li {
     list-style: none;
-    padding: 20px;
-    border: #ccc solid 1px;
-    margin-bottom: 5px;
-    background: #e6e6e6;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 10px;
 }
 
-/* Footer */
-
-footer {
-    padding: 20px;
-    margin-top: 20px;
-    color: #fff;
-    background-color: #e8491d;
-    text-align: center;
+ul#services li {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3 ease;
+    cursor: pointer;
+    margin: 20px 10px;
 }
+
+ul#services li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-color: #e8491d;
+}
+
+ul#services li h3 {
+    margin-top: 0;
+    color:#161748;
+    font-size: 1.3rem;
+}
+
+ul#services li p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+
 
 /* ===== Responsive Layout ===== */
 
 /* Tablets (portrait and small laptops) */
-@media (max-width: 1024px) {
-  .container {
-    width: 90%;
-  }
+@media(max-width: 768px) {
+    header #branding,
+    header nav,
+    header nav li,
+    #newsletter h1,
+    #newsletter form {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
 
-  /* Keep main and sidebar side-by-side on tablets */
-  #main .container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  #main-col {
-    flex: 3;
-  }
-
-  #sidebar {
-    flex: 1;
-    margin-top: 76px;
-    border-radius: 5px;
-  }
-
-  /* Allow boxes to wrap neatly into two per row */
-  #boxes .container {
-    flex-wrap: wrap;
-  }
-
-  .box {
-    flex: 1 1 45%;
-  }
-
-  header nav {
-    margin-top: 5px;
-  }
-}
+    header {
+        padding-bottom: 20px;
+    }
 
 
-/* Mobile Devices (phones) */
-@media (max-width: 768px) {
-  header #branding,
-  header nav,
-  #newsletter h1,
-  #newsletter form {
-    float: none;
-    text-align: center;
-    width: 100%;
-  }
+    #showcase h1 {
+        /* margin-top: 100px; */
+        font-size: 40px;
+    }
 
-  header nav ul {
-    text-align: center;
-  }
+    #showcase {
+        padding-top: 35px;
+        padding-bottom: 60px;
+    }
 
-  header ul li {
-    float: none;
-    display: block;
-    padding: 10px 0;
-  }
+    #newsletter {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 
-  #newsletter form {
-    margin-top: 15px;
-  }
+    #newsletter button {
+        display: block;
+        width: 100%;
+    }
 
-  #newsletter input[type="email"] {
-    width: 80%;
-    margin-bottom: 10px;
-  }
+    #newsletter form input[type="email"] {
+        width: 100%;
+        margin-bottom: 5px;
+    }
 
-  /* Stack boxes vertically */
-  #boxes .container {
-    flex-direction: column;
-    align-items: center;
-  }
+    #boxes .container {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 
-  .box {
-    width: 90%;
-  }
-
-  /* Stack main + sidebar */
-  #main .container {
-    flex-direction: column;
-  }
-
-  #main-col,
-  #sidebar {
-    width: 100%;
-  }
-
-  footer {
-    font-size: 14px;
-  }
-}
-
-/* Extra Small Devices (narrow phones) */
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-
-  #showcase h1 {
-    font-size: 32px;
-  }
-
-  #showcase p {
-    font-size: 16px;
-  }
-
-  .button_1 {
-    width: 100%;
-  }
 }
