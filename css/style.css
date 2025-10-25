@@ -320,4 +320,76 @@ ul#services li p {
         padding-bottom: 20px;
     }
 
+    ul#services {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    ul#services li {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    #main-col .page-title {
+        text-align: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    header #branding h1 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    header nav ul {
+        gap: 8px;
+    }
+
+    #showcase h1 {
+        font-size: 32px;
+        margin-top: 30px;
+    }
+
+    #showcase p {
+        font-size: 16px;
+    }
+
+    #newsletter input[type="email"] {
+        width: 100%;
+    }
+
+    .box img {
+        width: 80px;
+        height: 80px;
+    }
+
+    ul#services li {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    footer {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    ul#services {
+        align-items: center;
+    }
+
+    ul#services li {
+        width: 95%;
+        max-width: 400px;
+    }
+
+    #main-col .page-title {
+        text-align: center;
+    }
+
 }
